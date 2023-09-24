@@ -3,8 +3,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Pomodoro {
-    private static final int WORK_DURATION = 25 * 60;  // Duración del trabajo en segundos
-    private static final int BREAK_DURATION = 5 * 60;  // Duración del descanso en segundos
+    private static final int WORK_DURATION = 25 * 60;  
+    private static final int BREAK_DURATION = 5 * 60;  
     private Timer timer;
     private int remainingTime;
     private boolean isWorking;
@@ -45,8 +45,5 @@ public class Pomodoro {
         System.out.printf("%02d:%02d - %s%n", minutes, seconds, isWorking ? "Trabajo" : "Descanso");
     }
 
-    public static void main(String[] args) {
-        System.out.println("Comenzando el temporizador Pomodoro");
-        Pomodoro pomodoro = new Pomodoro();
-    }
+    
 }
