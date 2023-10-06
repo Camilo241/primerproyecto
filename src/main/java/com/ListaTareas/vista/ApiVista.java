@@ -17,7 +17,6 @@ public class ApiVista  extends JFrame{
         JButton boton1 = new JButton("Iniciar Tarea");
         boton1.setSize(100 ,50);
         JButton boton2 = new JButton("Pausar Tarea");
-        JButton boton3 = new JButton("Terminar Tarea");
 
         // Crear un panel para organizar los componentes
         JPanel panel = new JPanel();
