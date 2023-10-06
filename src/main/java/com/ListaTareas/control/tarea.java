@@ -32,7 +32,7 @@ public class tarea {
         return id;
     }
     public void setId(int id) {
-        this.id = id;
+        this.id = id;  
     }
     public String getNombre_tarea() {
         return nombre_tarea;
