@@ -27,6 +27,6 @@ jobs:
         run: javac -d bin src/main/java/com/ListaTareas/control/*.java
         working-directory: ${{ github.workspace }}
 
-      - name: Run Tests
-        run: java -cp bin:src/test Main
+      - name: Run Main Class
+        run: java -cp bin com.ListaTareas.control.Main
         working-directory: ${{ github.workspace }}
