@@ -2,9 +2,11 @@ name: Build and Test Java Application
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
   pull_request:
-    branches: ["main"]
+    branches:
+      - main
 
 jobs:
   build:
@@ -22,8 +24,7 @@ jobs:
           distribution: "adopt"
 
       - name: Compile Java Code
-        run: javac -d bin src/main/*.java
-
+        run: javac -d bin src/main/java/com/ListaTareas/control/*.java
         working-directory: ${{ github.workspace }}
 
       - name: Run Tests
