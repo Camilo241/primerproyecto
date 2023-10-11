@@ -6,54 +6,57 @@ import src.main.java.com.ListaTareas.control.tarea;
 
 import java.awt.*;
 
-public class ApiVistaGeneral extends JFrame {// inheriting JFrame
+public class ApiVistaGeneral extends JFrame {
     JFrame principal;
 
     ApiVistaGeneral() {
-        JLabel titulo,titulo2,ntarea,pomodoro;
+        JLabel titulo, titulo2, pomodoro;
         titulo = new JLabel("Lista de Tareas");
-        titulo.setBounds(25,50,300,20);
-        titulo2 = new JLabel("Bienvenido "+ getName());
-        titulo2.setBounds(25,75,300,20);
+        titulo.setBounds(25, 50, 300, 20);
+        titulo2 = new JLabel("Bienvenido " + getName());
+        titulo2.setBounds(25, 75, 300, 20);
         pomodoro = new JLabel("Pomodoro");
-        pomodoro.setBounds(25,100,300,150);
-
+        pomodoro.setBounds(25, 100, 300, 150);
 
         JPanel panel;
 
-        panel=new JPanel();  
-        panel.setBounds(40,120,300,200);    
+        panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.setBounds(40, 120, 300, 200);
         panel.setBackground(Color.GRAY);
 
-        JTextField t1, t2;
-        ntarea = new JLabel("Numero de la tarea");
-        ntarea.setBounds(40,100,300,20);
+        JPanel horizontalPanel1 = new JPanel();
+        horizontalPanel1.setLayout(new FlowLayout(FlowLayout.LEFT));
 
-        t1 = new JTextField("Nombre de La tarea");
-        t1.setBounds(50, 120, 200, 40);
+        JButton eliminar = new JButton("X");
+        JTextField t1 = new JTextField("Nombre de la tarea");
 
-        t2 = new JTextField("Descripcion");
-        t2.setBounds(50, 150, 200, 30);
+        horizontalPanel1.add(t1);
+        horizontalPanel1.add(eliminar);
 
-        JButton añadirTarea,eliminar,editar;
-        añadirTarea = new JButton("Añadir Tarea");// create button
+        JPanel horizontalPanel2 = new JPanel();
+        horizontalPanel2.setLayout(new FlowLayout(FlowLayout.LEFT));
+
+        JButton editar = new JButton("Editar tarea");
+        JTextField t2 = new JTextField("Descripcion");
+
+        horizontalPanel2.add(t2);
+        horizontalPanel2.add(editar);
+
+        JLabel ntarea = new JLabel("Numero de la tarea");
+        ntarea.setBounds(40, 100, 300, 20);
+
+        panel.add(ntarea);
+        panel.add(horizontalPanel1);
+        panel.add(horizontalPanel2);
+        panel.add(pomodoro);
+
+        JButton añadirTarea = new JButton("Añadir Tarea");
         añadirTarea.setBounds(230, 75, 120, 20);
 
-        eliminar = new JButton("X");// create button
-        eliminar.setBounds(230, 150, 120, 20);
-
-        editar = new JButton("Editar tarea");// create button
-        editar.setBounds(230, 170, 120, 20);
-
         add(panel);
-        panel.add(t1);
-        panel.add(t2);
-        panel.add(pomodoro);
-        panel.add(eliminar);
-        panel.add(editar);  
         add(titulo);
         add(titulo2);
-        add(ntarea);
         add(añadirTarea);
         setSize(400, 500);
         setLayout(null);
