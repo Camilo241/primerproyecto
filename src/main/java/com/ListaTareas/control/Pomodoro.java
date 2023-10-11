@@ -1,49 +1,68 @@
 package src.main.java.com.ListaTareas.control;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class Pomodoro {
-    private static final int WORK_DURATION = 25 * 60;  
-    private static final int BREAK_DURATION = 5 * 60;  
-    private Timer timer;
-    private int remainingTime;
-    private boolean isWorking;
+    private static final int DURACION_TRABAJO = 25 * 60;
+    private static final int DURACION_DESCANSO = 5 * 60;
+    private Timer temporizador;
+    private int tiempoRestante;
+    // private int tareaIni;
+    // private int tareaPau;
+    // private int tareaFin;
+    private boolean enTrabajo;
 
-    public Pomodoro() {
-        remainingTime = WORK_DURATION;
-        isWorking = true;
-        createTimer();
+    public  Pomodoro() {
+        tiempoRestante = DURACION_TRABAJO;
+        enTrabajo = true;
     }
-
-    private void createTimer() {
-        timer = new Timer();
-        timer.scheduleAtFixedRate(new TimerTask() {
-            public void run() {
-                if (remainingTime > 0) {
-                    remainingTime--;
-                    displayTime();
-                } else {
-                    toggleTimerMode();
-                }
+        public void iniciar() {
+            if (temporizador == null) {
+                temporizador = new Timer();
+                temporizador.scheduleAtFixedRate(new TimerTask() {
+                    public void run() {
+                        if (tiempoRestante > 0) {
+                            tiempoRestante--;
+                            mostrarTiempo();
+                        } else {
+                            cambiarModoTemporizador();
+                        }
+                    }
+                }, 0, 1000); // Actualiza cada 1 segundo
             }
-        }, 0, 1000); // Actualiza cada 1 segundo
-    }
-
-    private void toggleTimerMode() {
-        isWorking = !isWorking;
-        if (isWorking) {
-            remainingTime = WORK_DURATION;
-        } else {
-            remainingTime = BREAK_DURATION;
         }
-        displayTime();
-    }
 
-    private void displayTime() {
-        int minutes = remainingTime / 60;
-        int seconds = remainingTime % 60;
-        System.out.printf("%02d:%02d - %s%n", minutes, seconds, isWorking ? "Trabajo" : "Descanso");
-    }
+        public void pausar() {
+            if (temporizador != null) {
+                temporizador.cancel();
+                temporizador = null;
+            }
+        }
 
-    
+        public void terminar(){
+            pausar();
+            if (enTrabajo == true) {
+                tiempoRestante = DURACION_TRABAJO;
+            }else{
+                tiempoRestante = DURACION_DESCANSO;
+            }
+            mostrarTiempo();
+        }
+
+        private void cambiarModoTemporizador() {
+            enTrabajo = !enTrabajo;
+            if (enTrabajo) {
+                tiempoRestante = DURACION_TRABAJO;
+            } else {
+                tiempoRestante = DURACION_DESCANSO;
+            }
+            mostrarTiempo();
+        }
+
+        private void mostrarTiempo() {
+            int minutos = tiempoRestante / 60;
+            int segundos = tiempoRestante % 60;
+            System.out.printf("%02d:%02d - %s%n", minutos, segundos, enTrabajo ? "Trabajo" : "Descanso");
+        }
 }
