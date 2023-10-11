@@ -21,35 +21,22 @@ public class ApiVistaGeneral extends JFrame {
         JPanel panel;
 
         panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.setLayout(new GridLayout(3, 2));
         panel.setBounds(40, 120, 300, 200);
         panel.setBackground(Color.GRAY);
 
-        JPanel horizontalPanel1 = new JPanel();
-        horizontalPanel1.setLayout(new FlowLayout(FlowLayout.LEFT));
-
+        JLabel label1 = new JLabel("Nombre de la tarea");
+        JLabel label2 = new JLabel("Descripcion");
         JButton eliminar = new JButton("X");
-        JTextField t1 = new JTextField("Nombre de la tarea");
-
-        horizontalPanel1.add(t1);
-        horizontalPanel1.add(eliminar);
-
-        JPanel horizontalPanel2 = new JPanel();
-        horizontalPanel2.setLayout(new FlowLayout(FlowLayout.LEFT));
-
         JButton editar = new JButton("Editar tarea");
-        JTextField t2 = new JTextField("Descripcion");
+        JButton iniciar = new JButton("Iniciar");
 
-        horizontalPanel2.add(t2);
-        horizontalPanel2.add(editar);
-
-        JLabel ntarea = new JLabel("Numero de la tarea");
-        ntarea.setBounds(40, 100, 300, 20);
-
-        panel.add(ntarea);
-        panel.add(horizontalPanel1);
-        panel.add(horizontalPanel2);
+        panel.add(label1);
+        panel.add(eliminar);
+        panel.add(label2);
+        panel.add(editar);
         panel.add(pomodoro);
+        panel.add(iniciar);
 
         JButton añadirTarea = new JButton("Añadir Tarea");
         añadirTarea.setBounds(230, 75, 120, 20);
