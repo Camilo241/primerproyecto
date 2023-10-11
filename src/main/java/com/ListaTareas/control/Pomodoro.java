@@ -4,6 +4,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Pomodoro {
+
     private static final int DURACION_TRABAJO = 25 * 60;
     private static final int DURACION_DESCANSO = 5 * 60;
     private Timer temporizador;
@@ -22,6 +23,7 @@ public class Pomodoro {
         if (temporizador == null) {
             temporizador = new Timer();
             temporizador.scheduleAtFixedRate(new TimerTask() {
+                @Override
                 public void run() {
                     if (tiempoRestante > 0) {
                         tiempoRestante--;

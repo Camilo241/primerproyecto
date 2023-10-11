@@ -1,6 +1,7 @@
 package src.main.java.com.ListaTareas.control;
 
 public class usuario {
+
     private int id;
     private String nombre;
     private String contraseña;

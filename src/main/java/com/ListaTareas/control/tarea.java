@@ -1,9 +1,9 @@
 package src.main.java.com.ListaTareas.control;
 
 import java.sql.Date;
-import java.util.Scanner;
 
 public class tarea {
+
     private int id;
     private String nombre_tarea;
     private String descripcion;
@@ -88,7 +88,5 @@ public class tarea {
     public void setPomodoro(int pomodoro) {
         this.pomodoro = pomodoro;
     }
-
-    Scanner scanner = new Scanner(System.in);
 
 }

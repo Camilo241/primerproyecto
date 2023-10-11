@@ -7,7 +7,6 @@ import src.main.java.com.ListaTareas.control.tarea;
 import java.awt.*;
 
 public class ApiVistaGeneral extends JFrame {
-    JFrame principal;
 
     public ApiVistaGeneral() {
         JLabel titulo, titulo2, pomodoro;
@@ -49,9 +48,5 @@ public class ApiVistaGeneral extends JFrame {
         setSize(400, 500);
         setLayout(null);
         setVisible(true);
-    }
-
-    public static void main(String[] args) {
-        new ApiVistaGeneral();
     }
 }
