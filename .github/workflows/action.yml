@@ -28,5 +28,5 @@ jobs:
         working-directory: ${{ github.workspace }}
       
       - name: Compile Java Test Code
-        run: javac -cp .:junit-platform-console-standalone-1.7.0.jar -d bin src/test/java/com/ListaTareas/control/*.java
+        run: javac -cp .:junit-platform-console-standalone-1.7.0.jar -d bin src/test Main.java
         working-directory: ${{ github.workspace }}
