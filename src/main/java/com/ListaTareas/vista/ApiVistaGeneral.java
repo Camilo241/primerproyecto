@@ -28,6 +28,7 @@ public class ApiVistaGeneral extends JFrame {
         JLabel label1 = new JLabel("Nombre de la tarea");
         JLabel label2 = new JLabel("Descripcion");
         JButton eliminar = new JButton("X");
+        eliminar.setIcon(new ImageIcon("src/main/java/com/ListaTareas/vista/img/rechazar.png"));
         JButton editar = new JButton("Editar tarea");
         JButton iniciar = new JButton("Iniciar");
 
