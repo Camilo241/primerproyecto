@@ -13,56 +13,57 @@ public class Pomodoro {
     // private int tareaFin;
     private boolean enTrabajo;
 
-    public  Pomodoro() {
+    public Pomodoro() {
         tiempoRestante = DURACION_TRABAJO;
         enTrabajo = true;
     }
-        public void iniciar() {
-            if (temporizador == null) {
-                temporizador = new Timer();
-                temporizador.scheduleAtFixedRate(new TimerTask() {
-                    public void run() {
-                        if (tiempoRestante > 0) {
-                            tiempoRestante--;
-                            mostrarTiempo();
-                        } else {
-                            cambiarModoTemporizador();
-                        }
+
+    public void iniciar() {
+        if (temporizador == null) {
+            temporizador = new Timer();
+            temporizador.scheduleAtFixedRate(new TimerTask() {
+                public void run() {
+                    if (tiempoRestante > 0) {
+                        tiempoRestante--;
+                        mostrarTiempo();
+                    } else {
+                        cambiarModoTemporizador();
                     }
-                }, 0, 1000); // Actualiza cada 1 segundo
-            }
+                }
+            }, 0, 1000); // Actualiza cada 1 segundo
         }
+    }
 
-        public void pausar() {
-            if (temporizador != null) {
-                temporizador.cancel();
-                temporizador = null;
-            }
+    public void pausar() {
+        if (temporizador != null) {
+            temporizador.cancel();
+            temporizador = null;
         }
+    }
 
-        public void terminar(){
-            pausar();
-            if (enTrabajo == true) {
-                tiempoRestante = DURACION_TRABAJO;
-            }else{
-                tiempoRestante = DURACION_DESCANSO;
-            }
-            mostrarTiempo();
+    public void terminar() {
+        pausar();
+        if (enTrabajo == true) {
+            tiempoRestante = DURACION_TRABAJO;
+        } else {
+            tiempoRestante = DURACION_DESCANSO;
         }
+        mostrarTiempo();
+    }
 
-        private void cambiarModoTemporizador() {
-            enTrabajo = !enTrabajo;
-            if (enTrabajo) {
-                tiempoRestante = DURACION_TRABAJO;
-            } else {
-                tiempoRestante = DURACION_DESCANSO;
-            }
-            mostrarTiempo();
+    private void cambiarModoTemporizador() {
+        enTrabajo = !enTrabajo;
+        if (enTrabajo) {
+            tiempoRestante = DURACION_TRABAJO;
+        } else {
+            tiempoRestante = DURACION_DESCANSO;
         }
+        mostrarTiempo();
+    }
 
-        private void mostrarTiempo() {
-            int minutos = tiempoRestante / 60;
-            int segundos = tiempoRestante % 60;
-            System.out.printf("%02d:%02d - %s%n", minutos, segundos, enTrabajo ? "Trabajo" : "Descanso");
-        }
+    private void mostrarTiempo() {
+        int minutos = tiempoRestante / 60;
+        int segundos = tiempoRestante % 60;
+        System.out.printf("%02d:%02d - %s%n", minutos, segundos, enTrabajo ? "Trabajo" : "Descanso");
+    }
 }

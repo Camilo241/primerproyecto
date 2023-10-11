@@ -9,7 +9,7 @@ import java.awt.*;
 public class ApiVistaGeneral extends JFrame {
     JFrame principal;
 
-    ApiVistaGeneral() {
+    public ApiVistaGeneral() {
         JLabel titulo, titulo2, pomodoro;
         titulo = new JLabel("Lista de Tareas");
         titulo.setBounds(25, 50, 300, 20);
