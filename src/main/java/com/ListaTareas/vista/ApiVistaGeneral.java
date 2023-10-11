@@ -2,7 +2,7 @@ package src.main.java.com.ListaTareas.vista;
 
 import javax.swing.*;
 
-import src.main.java.com.ListaTareas.control.tarea;
+import src.main.java.com.ListaTareas.control.Tarea;
 
 import java.awt.*;
 
