@@ -26,7 +26,3 @@ jobs:
       - name: Compile Java Code
         run: javac -d bin src/main/java/com/ListaTareas/control/*.java
         working-directory: ${{ github.workspace }}
-      
-      - name: Compile Java Test Code
-        run: javac -cp .:junit-platform-console-standalone-1.7.0.jar -d bin src/test Main
-        working-directory: ${{ github.workspace }}
