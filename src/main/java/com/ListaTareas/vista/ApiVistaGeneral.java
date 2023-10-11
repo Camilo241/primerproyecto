@@ -56,8 +56,8 @@ public class ApiVistaGeneral extends JFrame {
         setLayout(null);
         setVisible(true);
         añadirTarea.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                añadirTareaActionPerformed(evt);
+            public void actionPerformed(ActionEvent evt) {// tengo el archivo
+                añadirTareaActionPerformed(evt); // llamo el elemento
             }
         });
     }
