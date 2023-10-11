@@ -12,8 +12,10 @@ import java.awt.event.ActionListener;
 public class ApiVistaGeneral extends JFrame {
 
     public ApiVistaGeneral() {
+        initComponents();
+    }
 
-        
+    private void initComponents() {
         JLabel titulo, titulo2, pomodoro;
         titulo = new JLabel("Lista de Tareas");
         titulo.setBounds(25, 50, 300, 20);
@@ -53,29 +55,31 @@ public class ApiVistaGeneral extends JFrame {
         setSize(400, 500);
         setLayout(null);
         setVisible(true);
-
-
-        private void añadirTareaActionPerformed(ActionEvent evt){
-            String nombreTarea = JOptionPane.showInputDialog("Nombre de la tarea:");
-
-                // Solicitar al usuario la descripción de la tarea
-            String descripcion = JOptionPane.showInputDialog("Descripción:");
-
-                // Solicitar al usuario la categoría de la tarea
-            String categoria = JOptionPane.showInputDialog("Categoría:");
-
-                // Crear una instancia de Tarea con los datos ingresados
-            Tarea nuevaTarea = new Tarea(0, nombreTarea, descripcion, false, categoria, 0);
-
-                // Agregar la nueva tarea a la lista de tareas
-            ListaTareas.agregarTarea(nuevaTarea);
-
-            JOptionPane.showMessageDialog(null, "Tarea agregada exitosamente.");
-        }
         añadirTarea.addActionListener(new ActionListener() {
-            public void ActionPerformed(ActionEvent evt){
-            añadirTareaActionPerformed(evt);
+            public void actionPerformed(ActionEvent evt) {
+                añadirTareaActionPerformed(evt);
             }
         });
+    }
+
+    private void añadirTareaActionPerformed(ActionEvent evt) {
+        String nombreTarea = JOptionPane.showInputDialog("Nombre de la tarea:");
+
+        // Solicitar al usuario la descripción de la tarea
+        String descripcion = JOptionPane.showInputDialog("Descripción:");
+
+        // Solicitar al usuario la categoría de la tarea
+        String categoria = JOptionPane.showInputDialog("Categoría:");
+
+        // Crear una instancia de Tarea con los datos ingresados
+        Tarea nuevaTarea = new Tarea(0, nombreTarea, descripcion, false, categoria, 0);
+
+        // Crear una instancia de ListaTareas
+        ListaTareas listaTareas = new ListaTareas();
+
+        // Agregar la nueva tarea a la lista de tareas
+        listaTareas.agregarTarea(nuevaTarea);
+
+        JOptionPane.showMessageDialog(null, "Tarea agregada exitosamente.");
     }
 }

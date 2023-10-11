@@ -1,6 +1,5 @@
 package src.main.java.com.ListaTareas.control;
 
-import src.main.java.com.ListaTareas.control.Tarea;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,14 +31,12 @@ public class ListaTareas {
         }
     }
 
+    @SuppressWarnings("unchecked")
     public void cargarTareasDesdeArchivo(String nombreArchivo) {
         try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(nombreArchivo))) {
             tareas = (List<Tarea>) in.readObject();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-    }
-    public static void main(String[] args) {
-        new ListaTareas();
     }
 }
