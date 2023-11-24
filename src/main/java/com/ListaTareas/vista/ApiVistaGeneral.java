@@ -71,14 +71,14 @@ public class ApiVistaGeneral extends JFrame {
         // Solicitar al usuario la categoría de la tarea
         String categoria = JOptionPane.showInputDialog("Categoría:");
 
-        // Crear una instancia de Tarea con los datos ingresados
-        Tarea nuevaTarea = new Tarea(0, nombreTarea, descripcion, false, categoria, 0);
+        // // Crear una instancia de Tarea con los datos ingresados
+        // Tarea nuevaTarea = new Tarea(0, nombreTarea, descripcion, false, categoria, 0);
 
         // Crear una instancia de ListaTareas
         ListaTareas listaTareas = new ListaTareas();
 
         // Agregar la nueva tarea a la lista de tareas
-        listaTareas.agregarTarea(nuevaTarea);
+        // listaTareas.agregarTarea(nuevaTarea);
 
         JOptionPane.showMessageDialog(null, "Tarea agregada exitosamente.");
     }
