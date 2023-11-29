@@ -4,22 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ListaTareas {
-    private List<tarea> tareas;
+    private List<Tarea> tareas;
 
     public ListaTareas() {
         tareas = new ArrayList<>();
     }
 
-    public void addtarea(tarea tarea) {
+    public void agregarTarea(Tarea tarea) {
         tareas.add(tarea);
     }
 
-    public void removetarea(tarea tarea) {
+    public void eliminarTarea(Tarea tarea) {
         tareas.remove(tarea);
     }
 
-
-    public List<tarea> gettareas() {
+    public List<Tarea> obtenerTareas() {
         return tareas;
     }
+
 }
